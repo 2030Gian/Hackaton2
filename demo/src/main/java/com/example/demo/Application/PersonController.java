@@ -1,27 +1,21 @@
-package com.example.demo.Application;
-
-import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/groups")
-public class GroupController {
+@RequestMapping("/persons")
+public class PersonController {
 
     @Autowired
-    private GroupRepository groupRepository;
+    private PersonRepository personRepository;
     
-    @GetMapping
-    public List<Group> getAllGroups() {
-        return groupRepository.getAllGroups();
+    @GetMapping("/{personId}/group")
+    public Group getPersonGroup(@PathVariable Long personId) {
+        Person person = personRepository.findById(personId).orElse(null);
+        if (person != null) {
+            return person.getGroup();
+        } else {
+
+            return null;
+        }
     }
-
-    
-    @GetMapping("/{groupId}")
-    public Group getGroupById(@PathVariable int groupId) {
-        return groupRepository.getGroupById(groupId);
-    }
-
-    
-
 }
