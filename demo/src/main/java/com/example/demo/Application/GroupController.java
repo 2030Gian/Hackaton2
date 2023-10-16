@@ -9,20 +9,20 @@ import java.util.List;
 public class GroupController {
 
     @Autowired
-    private GroupRepository groupRepository; // Suponiendo que tengas un repositorio llamado GroupRepository
+    private GroupRepository groupRepository; 
 
-    // Endpoint para obtener todos los grupos
+  
     @GetMapping
     public List<Group> getAllGroups() {
         return groupRepository.getAllGroups();
     }
 
-    // Endpoint para obtener un grupo por ID
+    
     @GetMapping("/{groupId}")
     public Group getGroupById(@PathVariable int groupId) {
         return groupRepository.getGroupById(groupId);
     }
 
-    // Otros métodos relacionados con grupos, como crear, actualizar y eliminar, pueden agregarse aquí según sea necesario.
+   
 
 }
