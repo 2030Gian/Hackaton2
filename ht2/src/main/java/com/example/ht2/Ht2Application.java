@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.ht2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class Ht2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Ht2Application.class, args);
 	}
 
 }
