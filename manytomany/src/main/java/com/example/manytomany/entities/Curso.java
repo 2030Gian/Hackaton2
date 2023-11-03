@@ -11,7 +11,7 @@ public class Curso {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "id_curso", updatable = false, nullable = false)
     private UUID id_curso;
 
     @Column(name = "name", nullable = false, unique = false)
@@ -20,7 +20,7 @@ public class Curso {
     @ManyToMany(mappedBy = "cursos")
     private List<Estudiante> estudiantes;
 
-
+ 
     public Curso(){};
     public Curso(String name){
         this.name = name;

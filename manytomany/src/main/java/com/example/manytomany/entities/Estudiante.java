@@ -8,16 +8,16 @@ import java.util.List;
 
 
 @Entity
-@Table(name="estudiante")
+@Table(name="estudiantes")
 public class Estudiante{
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "id_estudiante", updatable = false, nullable = false)
     private UUID id_estudiante;
 
-    @Column(name = "estudiante", nullable = false, unique = false)
+    @Column(name = "name", nullable = false, unique = false)
     private String name;
 
     @ManyToMany
@@ -27,12 +27,10 @@ public class Estudiante{
     )
     private List<Curso> cursos;
 
-    
 
     public Estudiante(){};
-    public Estudiante(String name, List<Curso> cursos){
+    public Estudiante(String name){
         this.name = name;
-        this.cursos = cursos;
     };
 
 
@@ -46,15 +44,6 @@ public class Estudiante{
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<Curso> getCursos() {
-        return this.cursos;
-    }
-
-    public void setCursos(List<Curso> cursos) {
-        this.cursos = cursos;
-    }
-
 
 
 
